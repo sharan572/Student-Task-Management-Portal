@@ -1,0 +1,1322 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* =========================================================
+   DARK GEN-Z RED THEME
+   Black / Crimson / Cherry / Burgundy
+========================================================= */
+
+:root {
+    /* Core */
+    --bg: #09090c;
+    --bg-soft: #0e0e13;
+    --surface: #131318;
+    --surface-2: #18181f;
+    --surface-3: #1e1e27;
+
+    /* Text */
+    --ink: #f7f7fa;
+    --ink-soft: #c4c4ce;
+    --muted: #858591;
+    --muted-dark: #62626e;
+
+    /* Borders */
+    --line: rgba(255, 255, 255, 0.07);
+    --line-hover: rgba(255, 255, 255, 0.13);
+
+    /* Red palette */
+    --red: #ff3b4f;
+    --red-bright: #ff4d5e;
+    --red-dark: #d91f38;
+
+    --crimson: #b91532;
+    --burgundy: #651326;
+
+    --red-soft: rgba(255, 59, 79, 0.12);
+    --red-softer: rgba(255, 59, 79, 0.07);
+
+    /* Supporting colors */
+    --green: #35d49a;
+    --green-soft: rgba(53, 212, 154, 0.12);
+
+    --orange: #ff9d4d;
+    --orange-soft: rgba(255, 157, 77, 0.12);
+
+    --purple: #9b7cff;
+    --purple-soft: rgba(155, 124, 255, 0.12);
+
+    /* Shadows */
+    --shadow-xs:
+        0 4px 14px rgba(0, 0, 0, 0.20);
+
+    --shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    --shadow-hover:
+        0 20px 60px rgba(0, 0, 0, 0.48);
+
+    --red-glow:
+        0 0 35px rgba(255, 59, 79, 0.15);
+
+    --red-glow-strong:
+        0 0 45px rgba(255, 59, 79, 0.25);
+
+    /* Radius */
+    --radius-sm: 11px;
+    --radius: 17px;
+    --radius-lg: 24px;
+
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(255, 35, 55, 0.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(185, 21, 50, 0.06),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 59, 79, 0.045),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--ink);
+
+    font-family: "DM Sans", sans-serif;
+
+    margin: 0;
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+::selection {
+    background: rgba(255, 59, 79, 0.35);
+    color: #fff;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b0b0f 0%,
+            #111117 55%,
+            #160d11 100%
+        );
+
+    border-bottom: 1px solid var(--line);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+
+    color: #fff;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    min-height: 68px;
+
+    padding:
+        15px
+        clamp(18px, 5vw, 72px);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+/* Ambient red glow */
+
+nav::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 59, 79, 0.16),
+            transparent 70%
+        );
+
+    content: "";
+
+    height: 180px;
+
+    position: absolute;
+
+    right: 8%;
+
+    top: -130px;
+
+    width: 180px;
+
+    pointer-events: none;
+}
+
+nav h2 {
+    color: #fff;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.8px;
+
+    margin: 0;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* Red brand indicator */
+
+nav h2::before {
+    background:
+        linear-gradient(
+            135deg,
+            #ff6978,
+            var(--red-dark)
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 59, 79, 0.10),
+        0 0 18px rgba(255, 59, 79, 0.35);
+
+    content: "";
+
+    display: inline-block;
+
+    height: 9px;
+
+    margin-right: 9px;
+
+    vertical-align: 2px;
+
+    width: 9px;
+}
+
+/* Navigation links */
+
+.nav-links {
+    align-items: center;
+
+    display: flex;
+
+    gap: 5px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.nav-links span {
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    color: #a7a7b4;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    padding: 9px 13px;
+
+    transition:
+        color 180ms var(--ease),
+        background 180ms var(--ease),
+        border-color 180ms var(--ease),
+        transform 180ms var(--ease);
+}
+
+.nav-links span:hover {
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border-color:
+        rgba(255, 255, 255, 0.07);
+
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   WELCOME HERO
+========================================================= */
+
+.welcome {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 59, 79, 0.17),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 65% 110%,
+            rgba(185, 21, 50, 0.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #111116 0%,
+            #151116 50%,
+            #100c10 100%
+        );
+
+    border-bottom:
+        1px solid rgba(255, 59, 79, 0.08);
+
+    min-height: 270px;
+
+    overflow: hidden;
+
+    padding:
+        64px
+        clamp(20px, 5vw, 72px)
+        62px;
+
+    position: relative;
+}
+
+/* Big background orb */
+
+.welcome::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 59, 79, 0.15),
+            rgba(255, 59, 79, 0.03) 45%,
+            transparent 70%
+        );
+
+    border-radius: 50%;
+
+    content: "";
+
+    height: 360px;
+
+    position: absolute;
+
+    right: -100px;
+
+    top: -170px;
+
+    width: 360px;
+
+    pointer-events: none;
+}
+
+/* Small decorative circle */
+
+.welcome::after {
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(255, 255, 255, 0.04);
+
+    border-radius: 50%;
+
+    bottom: -100px;
+
+    content: "";
+
+    height: 220px;
+
+    position: absolute;
+
+    right: 25%;
+
+    width: 220px;
+
+    pointer-events: none;
+}
+
+.welcome h1 {
+    color: #fff;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(35px, 5vw, 53px);
+
+    font-weight: 700;
+
+    letter-spacing: -2.3px;
+
+    line-height: 1.04;
+
+    margin: 0;
+
+    max-width: 760px;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Red underline */
+
+.welcome h1::after {
+    background:
+        linear-gradient(
+            90deg,
+            var(--red),
+            #ff7180,
+            transparent
+        );
+
+    border-radius: 20px;
+
+    bottom: -17px;
+
+    box-shadow:
+        0 0 15px rgba(255, 59, 79, 0.25);
+
+    content: "";
+
+    height: 5px;
+
+    left: 2px;
+
+    position: absolute;
+
+    width: 72px;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    margin: 0 auto;
+
+    max-width: 1280px;
+
+    padding:
+        44px
+        clamp(20px, 5vw, 72px)
+        100px;
+}
+
+main > h2 {
+    color: #fff;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 26px;
+
+    letter-spacing: -0.9px;
+
+    margin: 0 0 20px;
+}
+
+main > div > h2 {
+    color: #f1f1f5;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 19px;
+
+    letter-spacing: -0.4px;
+
+    margin: 0 0 14px;
+}
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.stats-container {
+    display: grid;
+
+    gap: 18px;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    margin-bottom: 54px;
+}
+
+.stat-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 25, 32, 0.96),
+            rgba(17, 17, 23, 0.96)
+        );
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow);
+
+    min-height: 150px;
+
+    overflow: hidden;
+
+    padding: 25px;
+
+    position: relative;
+
+    transition:
+        transform 220ms var(--ease),
+        border-color 220ms var(--ease),
+        box-shadow 220ms var(--ease);
+}
+
+.stat-card:hover {
+    border-color:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        var(--shadow-hover),
+        0 0 30px rgba(255, 59, 79, 0.04);
+
+    transform:
+        translateY(-5px);
+}
+
+/* Decorative glow */
+
+.stat-card::before {
+    border-radius: 50%;
+
+    content: "";
+
+    height: 120px;
+
+    opacity: 0.85;
+
+    position: absolute;
+
+    right: -45px;
+
+    top: -45px;
+
+    width: 120px;
+}
+
+.stat-card::after {
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.04);
+
+    border-radius: 50%;
+
+    content: "";
+
+    height: 34px;
+
+    position: absolute;
+
+    right: 22px;
+
+    top: 20px;
+
+    width: 34px;
+}
+
+/* First card */
+
+.stat-card:nth-child(1) {
+    border-top:
+        3px solid var(--red);
+}
+
+.stat-card:nth-child(1)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 59, 79, 0.18),
+            transparent 70%
+        );
+}
+
+/* Second */
+
+.stat-card:nth-child(2) {
+    border-top:
+        3px solid var(--green);
+}
+
+.stat-card:nth-child(2)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(53, 212, 154, 0.13),
+            transparent 70%
+        );
+}
+
+/* Third */
+
+.stat-card:nth-child(3) {
+    border-top:
+        3px solid var(--orange);
+}
+
+.stat-card:nth-child(3)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 157, 77, 0.13),
+            transparent 70%
+        );
+}
+
+/* Fourth */
+
+.stat-card:nth-child(4) {
+    border-top:
+        3px solid var(--purple);
+}
+
+.stat-card:nth-child(4)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(155, 124, 255, 0.13),
+            transparent 70%
+        );
+}
+
+.stat-card h3 {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    margin: 0 0 22px;
+
+    position: relative;
+
+    text-transform: uppercase;
+
+    z-index: 2;
+}
+
+.stat-card h2 {
+    color: #fff;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 35px;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
+
+    margin: 0;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* =========================================================
+   ADD TASK FORM
+========================================================= */
+
+main form {
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 25, 32, 0.96),
+            rgba(18, 18, 24, 0.96)
+        );
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 45px;
+
+    padding: 15px;
+
+    transition:
+        border-color 200ms var(--ease),
+        box-shadow 200ms var(--ease);
+}
+
+main form:focus-within {
+    border-color:
+        rgba(255, 59, 79, 0.30);
+
+    box-shadow:
+        var(--shadow),
+        0 0 0 4px rgba(255, 59, 79, 0.06);
+}
+
+main form input {
+    background:
+        #0d0d12;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        11px;
+
+    color:
+        #fff;
+
+    font-size:
+        14px;
+
+    min-width:
+        220px;
+
+    padding:
+        13px 14px;
+
+    transition:
+        border-color 180ms var(--ease),
+        background 180ms var(--ease),
+        box-shadow 180ms var(--ease);
+}
+
+main form input::placeholder {
+    color:
+        #666672;
+}
+
+main form input:hover {
+    background:
+        #101016;
+
+    border-color:
+        rgba(255, 255, 255, 0.12);
+}
+
+main form input:focus {
+    background:
+        #101016;
+
+    border-color:
+        var(--red);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 59, 79, 0.10),
+        0 0 20px rgba(255, 59, 79, 0.05);
+
+    outline:
+        none;
+}
+
+/* Add button */
+
+main form button,
+.task-card button {
+    border:
+        0;
+
+    border-radius:
+        11px;
+
+    cursor:
+        pointer;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    padding:
+        13px 18px;
+
+    transition:
+        background 180ms var(--ease),
+        transform 180ms var(--ease),
+        box-shadow 180ms var(--ease);
+}
+
+main form button {
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b4f,
+            #d91f38
+        );
+
+    box-shadow:
+        0 7px 20px rgba(255, 59, 79, 0.20);
+
+    color:
+        #fff;
+}
+
+main form button:hover,
+main form button:focus-visible {
+    background:
+        linear-gradient(
+            135deg,
+            #ff5364,
+            #e32640
+        );
+
+    box-shadow:
+        0 10px 28px rgba(255, 59, 79, 0.32),
+        0 0 20px rgba(255, 59, 79, 0.10);
+
+    transform:
+        translateY(-2px);
+}
+
+main form button:active {
+    transform:
+        scale(0.98);
+}
+
+/* =========================================================
+   TASK CARDS
+========================================================= */
+
+.tasks-container {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+}
+
+.task-card {
+    align-items:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 22, 29, 0.98),
+            rgba(17, 17, 23, 0.98)
+        );
+
+    border:
+        1px solid var(--line);
+
+    border-left:
+        4px solid var(--red);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow-xs);
+
+    display:
+        grid;
+
+    gap:
+        18px;
+
+    grid-template-columns:
+        minmax(150px, 1.2fr)
+        minmax(180px, 2fr)
+        auto
+        auto;
+
+    padding:
+        19px 21px;
+
+    position:
+        relative;
+
+    transition:
+        transform 200ms var(--ease),
+        box-shadow 200ms var(--ease),
+        border-color 200ms var(--ease);
+}
+
+/* Different red shades */
+
+.task-card:nth-child(2n) {
+    border-left-color:
+        #ff5264;
+}
+
+.task-card:nth-child(3n) {
+    border-left-color:
+        #d91f38;
+}
+
+.task-card:nth-child(4n) {
+    border-left-color:
+        #9f1830;
+}
+
+.task-card:hover {
+    border-color:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        var(--shadow-hover),
+        0 0 25px rgba(255, 59, 79, 0.035);
+
+    transform:
+        translateY(-3px);
+}
+
+.task-card h3 {
+    color:
+        #f8f8fb;
+
+    font-family:
+        "Space Grotesk", sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.2px;
+
+    margin:
+        0;
+}
+
+.task-card p {
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+
+    margin:
+        0;
+}
+
+/* =========================================================
+   STATUS PILLS
+========================================================= */
+
+.task-card p:nth-of-type(2) {
+    background:
+        rgba(255, 59, 79, 0.11);
+
+    border:
+        1px solid rgba(255, 59, 79, 0.12);
+
+    border-radius:
+        50px;
+
+    color:
+        #ff6575;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    justify-self:
+        start;
+
+    letter-spacing:
+        0.3px;
+
+    padding:
+        7px 12px;
+
+    white-space:
+        nowrap;
+}
+
+.task-card:nth-child(2n) p:nth-of-type(2) {
+    background:
+        rgba(255, 82, 100, 0.10);
+
+    border-color:
+        rgba(255, 82, 100, 0.12);
+
+    color:
+        #ff7180;
+}
+
+.task-card:nth-child(3n) p:nth-of-type(2) {
+    background:
+        rgba(217, 31, 56, 0.12);
+
+    border-color:
+        rgba(217, 31, 56, 0.14);
+
+    color:
+        #f05264;
+}
+
+.task-card:nth-child(4n) p:nth-of-type(2) {
+    background:
+        rgba(159, 24, 48, 0.14);
+
+    border-color:
+        rgba(159, 24, 48, 0.16);
+
+    color:
+        #df5266;
+}
+
+/* =========================================================
+   TASK BUTTON
+========================================================= */
+
+.task-card button {
+    background:
+        #24242d;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.25);
+
+    color:
+        #fff;
+}
+
+.task-card button:hover,
+.task-card button:focus-visible {
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--red-dark)
+        );
+
+    border-color:
+        transparent;
+
+    box-shadow:
+        0 8px 22px rgba(255, 59, 79, 0.25);
+
+    transform:
+        translateY(-2px);
+}
+
+.task-card button:active {
+    transform:
+        scale(0.98);
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+span:focus-visible,
+input:focus-visible {
+    outline:
+        3px solid rgba(255, 59, 79, 0.35);
+
+    outline-offset:
+        3px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .stats-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .task-card {
+        grid-template-columns:
+            minmax(140px, 1fr)
+            minmax(170px, 1.5fr)
+            auto;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+    .stats-container {
+        gap:
+            12px;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        margin-bottom:
+            38px;
+    }
+
+    .task-card {
+        align-items:
+            start;
+
+        grid-template-columns:
+            1fr auto;
+    }
+
+    .task-card p:first-of-type {
+        grid-column:
+            1 / -1;
+    }
+
+    .task-card p:nth-of-type(2) {
+        grid-column:
+            1;
+    }
+
+    .task-card button {
+        grid-column:
+            2;
+
+        grid-row:
+            3;
+    }
+
+    main {
+        padding-top:
+            32px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+    nav {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            13px;
+    }
+
+    .nav-links {
+        gap:
+            4px;
+
+        width:
+            100%;
+    }
+
+    .nav-links span {
+        font-size:
+            13px;
+
+        padding:
+            8px 10px;
+    }
+
+    .welcome {
+        min-height:
+            220px;
+
+        padding-bottom:
+            45px;
+
+        padding-top:
+            45px;
+    }
+
+    .welcome h1 {
+        font-size:
+            34px;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+    main {
+        padding-left:
+            16px;
+
+        padding-right:
+            16px;
+    }
+
+    .stat-card {
+        min-height:
+            120px;
+
+        padding:
+            18px;
+    }
+
+    .stat-card h3 {
+        font-size:
+            10px;
+
+        margin-bottom:
+            18px;
+    }
+
+    .stat-card h2 {
+        font-size:
+            28px;
+    }
+
+    main form {
+        align-items:
+            stretch;
+
+        flex-direction:
+            column;
+
+        padding:
+            14px;
+    }
+
+    main form input {
+        min-width:
+            0;
+
+        width:
+            100%;
+    }
+
+    main form button {
+        min-height:
+            46px;
+
+        width:
+            100%;
+    }
+
+    .task-card {
+        display:
+            flex;
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            10px 12px;
+
+        padding:
+            18px;
+    }
+
+    .task-card h3,
+    .task-card p:first-of-type {
+        flex-basis:
+            100%;
+    }
+
+    .task-card p:nth-of-type(2) {
+        margin-top:
+            2px;
+    }
+
+    .task-card button {
+        margin-left:
+            auto;
+
+        min-height:
+            42px;
+    }
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+    .stats-container {
+        grid-template-columns:
+            1fr;
+    }
+
+    .welcome h1 {
+        font-size:
+            30px;
+    }
+
+    .nav-links {
+        flex-wrap:
+            wrap;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:
+            auto !important;
+
+        transition:
+            none !important;
+    }
+}
